@@ -6,11 +6,12 @@ import random from "../Files/Add-Cart.png";
 import {FiXCircle} from "react-icons/fi";
 const CustomProducts = (props) => {
     const inicialvalue = {
-      imagen:random,
-      descp:"Imagen random",
-      Talla: "L",
-      precio:200
-
+      id:1,
+      Talla:'6',
+      color:'Cafe',
+      precio:600,
+      descp:'Sandalia marca coach',
+      imagen:random
     }
     const [estado1,setEstado1] = useState(inicialvalue)
     const [cerrar,setCerrar] = useState(false)
@@ -18,15 +19,10 @@ const CustomProducts = (props) => {
     const close = ()=>{
       setCerrar(false);
     }
-    const {productsshoes,titulo} = props
-    const arreglo = productsshoes
-
-    const restructurar = ()=>{
+    const {productsshoes,titulo} = props;
+    const restructurar = (id)=>{
       setCerrar(true);
     }
-
- 
-
     return (
         <div className='Productos'>
       <div className="title">
@@ -54,7 +50,7 @@ const CustomProducts = (props) => {
         <div className='Cerrar' onClick={close}><FiXCircle/></div>
         <img src={estado1.imagen} alt={estado1.descp} />
         <ul className='Arreglo'>
-          <li>{estado1.descp}</li>
+          <li>{estado1.descp}</li> 
         </ul>
        
       </div>:
