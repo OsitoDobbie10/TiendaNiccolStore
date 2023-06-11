@@ -26,14 +26,19 @@ const CustomCart = () => {
                         Cantidad: 1
                     </small>
                     <div className="boton-agregar">
-                        <img src={add} alt="Agregar" />
+                    <button type="button" class="btn btn-success">+</button>
+                    </div>
+                    <div className="boton-quitar">
+                    <button type="button" class="btn btn-warning">-</button>
                     </div>
                 </footer>
             </li>
         </ul>
-        <div className="boton-quitar">
-            <img src={remove} alt="" />
+        <div className="enviar">
+        <button type="button" class="btn btn-primary boton">Enviar pedido</button>
         </div>
+      
+       
     </aside>
     </>
   )

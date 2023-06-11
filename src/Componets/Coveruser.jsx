@@ -1,6 +1,7 @@
 import React from 'react'
 import "../Styles/Coveruser.css"
 import { NavLink } from 'react-router-dom';
+import CustomCart from '../Custom/CustomCart';
 
 const Coveruser = (props) => {
     const {imagen,tipo,valor} = props;
@@ -12,6 +13,7 @@ const Coveruser = (props) => {
             <h2>{" >"}</h2>
             <h2>{tipo}</h2>
         </div>
+        <CustomCart/>
     </div>
   )
 }

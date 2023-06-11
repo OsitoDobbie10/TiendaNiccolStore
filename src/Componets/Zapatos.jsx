@@ -14,6 +14,7 @@ import Footer from '../ComponentsHome/Footer';
 import Customarreglos from '../Custom/Customarreglos';
 import Customfilters from '../Custom/Customfilters';
 
+
 const Zapatos = () => {
   const [intro,setIntro] = useState(true);
   const nombreRefPreciozapatos = useRef();
