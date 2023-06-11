@@ -11,6 +11,7 @@
   }
   .cart>ul{
     list-style: none;
+    margin-top: 60px;
   }
   .cart img {
     aspect-ratio: 16/9;

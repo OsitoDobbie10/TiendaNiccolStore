@@ -4,12 +4,39 @@ import { useState } from 'react';
 export const CreateContext2 = createContext();
 
 export function Context2Provider({children}){
-    const [state,setState] = useState({});
+    const [cart,setCart] = useState([]);
+
+    const addCart = (product)=>{
+        const productValid = cart.findIndex(item=>item.id === product.id);
+
+        if (productValid >= 0){
+            //copia de nuestro arreglo
+            const newcart = structuredClone(cart);
+            newcart[productValid].quantify += 1;
+             return setCart(newcart);
+
+        }
+        //caso que no haya un producto en nuestro carrito
+        setCart(prevState=>([
+            ...prevState,
+            {
+                ...product,
+                quantify: 1
+            }
+        ]))
+
+    }
+
+    const ClearCard = ()=>{
+        setCart([]);
+    }
     
     return (
         <CreateContext2.Provider value={{
-            state,
-            setState
+            cart,
+            setCart,
+            addCart,
+            ClearCard
         }}>
             {children}
         </CreateContext2.Provider>
