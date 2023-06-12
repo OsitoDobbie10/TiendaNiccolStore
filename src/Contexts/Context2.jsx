@@ -30,13 +30,19 @@ export function Context2Provider({children}){
     const ClearCard = ()=>{
         setCart([]);
     }
+
+
+    const removeCart = (product)=>{
+        setCart(prevState=> prevState.filter(value=>value.id !== product.id))
+    }
     
     return (
         <CreateContext2.Provider value={{
             cart,
             setCart,
             addCart,
-            ClearCard
+            ClearCard,
+            removeCart
         }}>
             {children}
         </CreateContext2.Provider>

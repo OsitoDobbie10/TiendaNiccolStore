@@ -29,13 +29,16 @@ const CustomProducts = (props) => {
           imagen: array.imagen,
           descp: array.descp
       }
-      console.log(newobjeto)
       setEstado1(newobjeto)
 
     }
 
-    const {addCart,cart} = CustomAddCart();
-    console.log(JSON.stringify(cart,null,2));
+    const {addCart,cart,removeCart} = CustomAddCart();
+    //para cambbiar el botonm del card
+    const iscart = (value)=>{
+      return cart.some(data=> data.id === value.id)
+    }
+
     return (
         <div className='Productos'>
       <div className="title">
@@ -44,6 +47,7 @@ const CustomProducts = (props) => {
       <ul className='arrayCamisas'>
         {
           productsshoes.map((camisa)=>{
+            const operacion = iscart(camisa);
             return <motion.li
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -52,7 +56,12 @@ const CustomProducts = (props) => {
                     <img src={camisa.imagen} alt={camisa.descp} onClick={()=>restructurar(camisa)}/>
                     <p>{camisa.descp}</p>
                     <p>precio: <span style={{color:"red"}}>{camisa.precio}$</span></p>
-                    <button type="button" class="btn btn-success" onClick={()=>addCart(camisa)}>Agregar carrito</button>
+                    {
+                     operacion?
+                     <button type="button" class="btn btn-dark" onClick={()=>removeCart(camisa)}>Borrar carrito</button>:
+                     <button type="button" class="btn btn-success" onClick={()=>addCart(camisa)}>Agregar carrito</button>
+                    }
+                    
                   </motion.li>
           })
         }
@@ -63,7 +72,7 @@ const CustomProducts = (props) => {
         <div className='Cerrar' onClick={close}><FiXCircle/></div>
         <img src={estado1.imagen} alt={estado1.descp} />
         <ul className='Arreglo'>
-          <li>{estado1.descp}</li> 
+          <li>{`Articulo: ${estado1.descp}`}</li> 
         </ul>
        
       </div>:
