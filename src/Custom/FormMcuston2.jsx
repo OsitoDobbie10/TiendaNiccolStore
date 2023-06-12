@@ -35,19 +35,19 @@ const FormMcuston2 = (props) => {
     <div className='Formulario'>
     <div className='Titulo'>
       <h2>Filtros</h2>
-      <img src={Imagen} alt="Agregar" />
+      <img src={Imagen} alt="Logo" />
     </div>
-    <div className="Cuerpo">
+    <div className="cuerpo">
     <div class="accordion" id="accordionExample">
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingOne">
-    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      Precio
-    </button>
-  </h2>
-  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-  <div class="accordion-body">
-  <div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Precio
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <div className='Precio'> 
       <label htmlFor={nombreRefid1}>Precio a partir de:</label>
       <input onChange={changeprecio}
         type='range'
@@ -57,19 +57,19 @@ const FormMcuston2 = (props) => {
         value={variables.precio}
       />
       <span>{`${variables.precio}$`}</span>
- </div>
+     </div>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingTwo">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      Talla
-    </button>
-  </h2>
-  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-    <div class="accordion-body">
-    <div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Talla
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <div className='Talla'>
       <label htmlFor={nombreRef2id}>Filtro talla</label>
       <select id={nombreRef2id} onChange={changeTalla}>
       {
@@ -80,19 +80,19 @@ const FormMcuston2 = (props) => {
         })
       }
       </select>
-    </div>
+      </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingThree">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-      Color
-    </button>
-  </h2>
-  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-    <div class="accordion-body">
-    <div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+       Color
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <div className='Color'>
       <label htmlFor={nombreRef3id}>Filtro color</label>
       <select id={nombreRef3id} onChange={changecolor}>
         {
@@ -103,14 +103,14 @@ const FormMcuston2 = (props) => {
           })
         }
       </select>
-    </div>
+ </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
     </div>
-
-  </div>
+    </div>
+    
+    </div>
   )
 }
 

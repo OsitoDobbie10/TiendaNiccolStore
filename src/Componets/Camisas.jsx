@@ -13,6 +13,7 @@ import CustomProducts from '../Custom/CustomProducts';
 import Footer from '../ComponentsHome/Footer';
 import Customarreglos from '../Custom/Customarreglos';
 import Customfilters from '../Custom/Customfilters';
+import '../Styles/Camisas.css';
 const Camisas = () => {
   const [time,setTime] =  useState(true);
   const mobile = window.innerWidth <= 768 ? true: false
