@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import shirt from '../DB/Camisas'
 import Zapatos from '../DB/Zapatos'
 import Vestidos from "../DB/Vestidos"
 import Faldas from "../DB/Faldas"
@@ -14,6 +15,10 @@ const moveLastToFirst = (array)=>{
   return array
 }
 //Talla
+const arreglo = [... new Set(shirt.map(shirt=>shirt.Talla))];
+const TallaCamisas = arreglo.filter((value,index)=>arreglo.indexOf(value) === index);
+TallaCamisas.push('all');
+const [arraTallaCamisas,setArrayTallaCamisas] = useState(TallaCamisas);
 const arreglo1 = [...new Set(Zapatos.map(shoes=>shoes.Talla))];
 const TallaZapatos = arreglo1.filter((value,index)=>arreglo1.indexOf(value) === index);
 TallaZapatos.push('all');
@@ -31,6 +36,10 @@ const TallaPantalones = arreglo4.filter((value,index)=>arreglo4.indexOf(value) =
 TallaPantalones.push('all');
 const [arrayTalla4,setArrayTalla4] = useState(TallaPantalones)
 //Vestidos
+const arreglo9 = [... new Set(shirt.map(shirt=>shirt.color))];
+const ColorCamisas = arreglo9.filter((value,index)=>arreglo9.indexOf(value) === index);
+ColorCamisas.push('all');
+const [arrayaCamisasColor,setArrayCamisasColor] = useState(ColorCamisas);
 const arreglo5 = [...new Set(Zapatos.map(shoes=>shoes.color))];
 const ColorZapatos = arreglo5.filter((value,index)=>arreglo5.indexOf(value) === index);
 ColorZapatos.push('all');
@@ -48,7 +57,8 @@ const ColorPantalones = arreglo8.filter((value,index)=>arreglo8.indexOf(value) =
 ColorPantalones.push('all');
 const [arrayColor4,setArrayColor4] = useState(ColorPantalones)
   return (
-    {arrayTalla,
+    {arraTallaCamisas,
+    arrayTalla,
     TallaZapatos,
     arrayTalla2,
     TallaVestidos,
@@ -56,6 +66,7 @@ const [arrayColor4,setArrayColor4] = useState(ColorPantalones)
     TallaFaldas,
     arrayTalla4,
     TallaPantalones,
+    arrayaCamisasColor,
     arrayColor,
     ColorZapatos,
     arrayColor2,

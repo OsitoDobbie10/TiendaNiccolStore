@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './navbar';
 import ScrollToTop from "./ScrollToTop";
 import { useState } from 'react';
-import { useRef } from 'react';
+import { useId } from 'react';
 import shoes from "../DB/Zapatos";
 import Sppiner from './Sppiner';
 import Fotozapato from "../Files/Tacones.png";
@@ -17,9 +17,9 @@ import Customfilters from '../Custom/Customfilters';
 
 const Zapatos = () => {
   const [intro,setIntro] = useState(true);
-  const nombreRefPreciozapatos = useRef();
-  const nombreRefTallazapatos = useRef();
-  const nombreRefColorzapatos = useRef();
+  const nombreRefPreciozapatos = useId();
+  const nombreRefTallazapatos = useId();
+  const nombreRefColorzapatos = useId();
   const mobile1 = window.innerWidth <= 768 ? true : false;
   const {arrayTalla,arrayColor} = Customarreglos();
   const {funcionfilter2,variables2,setVariables2} = Customfilters();
@@ -51,7 +51,7 @@ const Zapatos = () => {
                       nombreRef2id={nombreRefTallazapatos}
                       nombreRef3id={nombreRefColorzapatos}
                       valormaximo="2000"/>}
-        <CustomProducts productsshoes = {productozapatos} titulo="Zapatos disponibles"/>
+        <CustomProducts productsshoes = {productozapatos} titulo="Vestidos disponibles"/>
         <Footer/>
        </div>
        

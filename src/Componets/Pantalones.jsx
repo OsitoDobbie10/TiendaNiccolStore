@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './navbar';
 import ScrollToTop from "./ScrollToTop";
 import { useState } from 'react';
-import { useRef } from 'react';
+import { useId } from 'react';
 import pants from "../DB/Pantalones";
 import Sppiner from './Sppiner';
 import FotoPantalon from '../Files/Pantalones.png'
@@ -16,9 +16,9 @@ import Customfilters from '../Custom/Customfilters';
 const Pantalones = () => {
   const [intro3,setIntro3] = useState(true);
   const mobile3 = window.innerWidth <= 768 ? true : false;
-  const nombreRefPreciopantalon = useRef();
-  const nombreRefTallapantalon = useRef();
-  const nombreRefColorpantalon = useRef();
+  const nombreRefPreciopantalon = useId();
+  const nombreRefTallapantalon = useId();
+  const nombreRefColorpantalon = useId();
   const {arrayTalla4,arrayColor4} = Customarreglos();
   const {funcionfilter3,variables3,setVariables3} = Customfilters();
   const productosvestidos = funcionfilter3(pants);

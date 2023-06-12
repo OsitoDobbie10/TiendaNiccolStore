@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './navbar';
 import ScrollToTop from "./ScrollToTop";
 import { useState } from 'react';
-import { useRef } from 'react';
+import { useId } from 'react';
 import shirt from "../DB/Faldas";
 import Sppiner from './Sppiner';
 import FotoFalda from "../Files/Falda.png";
@@ -16,9 +16,9 @@ import Customfilters from '../Custom/Customfilters';
 
 const Faldas = () => {
   const [intro3,setIntro3] = useState(true);
-  const nombreRefPreciofaldas = useRef();
-  const nombreRefTallafaldas = useRef();
-  const nombreRefColorfaldas = useRef();
+  const nombreRefPreciofaldas = useId();
+  const nombreRefTallafaldas = useId();
+  const nombreRefColorfaldas = useId();
   const mobile3 = window.innerWidth <= 768 ? true : false;
   const {arrayTalla3,arrayColor3} = Customarreglos();
   const {funcionfilter4,variables4,setVariables4} = Customfilters();

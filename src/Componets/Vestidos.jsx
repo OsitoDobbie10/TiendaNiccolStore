@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './navbar';
 import ScrollToTop from "./ScrollToTop";
 import { useState } from 'react';
-import { useRef } from 'react';
+import { useId } from 'react';
 import dress from "../DB/Vestidos";
 import Sppiner from './Sppiner';
 import FotoVestido from "../Files/Vestido.png";
@@ -16,9 +16,9 @@ import Customfilters from '../Custom/Customfilters';
 const Vestidos = () => {
   const [intro2,setIntro2] = useState(true);
   const mobile2 = window.innerWidth <= 768 ? true : false;
-  const nombreRefPreciovestidos = useRef();
-  const nombreRefTallavestidos = useRef();
-  const nombreRefColorvestidos = useRef();
+  const nombreRefPreciovestidos = useId();
+  const nombreRefTallavestidos = useId();
+  const nombreRefColorvestidos = useId();
   const {arrayTalla2,arrayColor2} = Customarreglos();
   const {funcionfilter3,variables3,setVariables3} = Customfilters();
   const productosvestidos = funcionfilter3(dress);
