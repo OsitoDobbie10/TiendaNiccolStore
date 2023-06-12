@@ -11,6 +11,7 @@ import Carritozapatos from './Componets/Carritozapatos';
 import Carritofaldas from './Componets/Carritofaldas';
 import Carritovestidos from './Componets/Carritovestidos';
 import CarritoPantalones from './Componets/CarritoPantalones';
+import {Context2Provider} from './Contexts/Context2';
 function App() {
   const router = createBrowserRouter([
     {path:'/',
@@ -48,9 +49,9 @@ function App() {
       ]}
   ])
   return (
-    <>
+    <Context2Provider>
     <RouterProvider router={router}/>
-    </>
+    </Context2Provider>
   )
 }
 

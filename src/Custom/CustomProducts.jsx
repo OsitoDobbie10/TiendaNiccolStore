@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import random from "../Files/Add-Cart.png";
 import {FiXCircle} from "react-icons/fi";
+import CustomAddCart from './CustomAddCart';
 const CustomProducts = (props) => {
     const inicialvalue = {
       id:1,
@@ -20,9 +21,21 @@ const CustomProducts = (props) => {
       setCerrar(false);
     }
     const {productsshoes,titulo} = props;
-    const restructurar = (id)=>{
+    const newproductos = structuredClone(productsshoes)
+    const restructurar = (value)=>{
       setCerrar(true);
+      const array = newproductos.find(data=>data.id === value.id)
+      const newobjeto = {
+          imagen: array.imagen,
+          descp: array.descp
+      }
+      console.log(newobjeto)
+      setEstado1(newobjeto)
+
     }
+
+    const {addCart,cart} = CustomAddCart();
+    console.log(JSON.stringify(cart,null,2));
     return (
         <div className='Productos'>
       <div className="title">
@@ -36,10 +49,10 @@ const CustomProducts = (props) => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                     key={camisa.id}>
-                    <img src={camisa.imagen} alt={camisa.descp} onClick={restructurar}/>
+                    <img src={camisa.imagen} alt={camisa.descp} onClick={()=>restructurar(camisa)}/>
                     <p>{camisa.descp}</p>
                     <p>precio: <span style={{color:"red"}}>{camisa.precio}$</span></p>
-                    <button type="button" class="btn btn-success">Agregar carrito</button>
+                    <button type="button" class="btn btn-success" onClick={()=>addCart(camisa)}>Agregar carrito</button>
                   </motion.li>
           })
         }
