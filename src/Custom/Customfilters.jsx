@@ -1,4 +1,3 @@
-import React from 'react'
 import { useContext } from 'react'
 import {CreateContext1} from "../Contexts/Context1";
 const Customfilters = () => {

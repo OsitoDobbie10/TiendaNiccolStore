@@ -103,14 +103,12 @@
 
       .cart li{
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      .enviar{
-       
-        border: 1px solid white;
-        position: absolute;
-        left: 38%;
-      }
+
 
     
   }

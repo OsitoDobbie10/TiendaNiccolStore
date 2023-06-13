@@ -28,15 +28,17 @@ function Valores({imagen,descp,precio,quantity}){
 const CustomCart = () => {
     const checkboxid = useId();
     const {cart} = CustomAddCart();
-    const {cleanBotom,boton} = CustomBotom();
+    const {boton,setBoton} = CustomBotom();
     const {sendMessage,setNombre} = CustomWhatsapp();
+
+    console.log(boton)
    
   return (
     <>
     <label htmlFor={checkboxid} className='cart-button'>
-        <img src={carrito} alt="Icono" className='iconoCarrito' onClick = {()=>cleanBotom}/>
+        <img src={carrito} alt="Icono" className='iconoCarrito' onClick={()=>{setBoton(false)}} />
     </label>
-    <input type="checkbox" id={checkboxid} hidden />
+    <input type="checkbox" id={checkboxid} hidden/>
     <motion.aside className='cart'
      initial={{ opacity: 0, scale: 0.5 }}
      animate={{ opacity: 1, scale: 1 }}

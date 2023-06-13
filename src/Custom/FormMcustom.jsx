@@ -36,7 +36,6 @@ const FormMcustom = (props) => {
         precio: e.target.value
       }))}
 
-      console.log(boton)
     return (
     <div className='Mobile'>
       {
@@ -45,9 +44,7 @@ const FormMcustom = (props) => {
         Filtros.
       </button>
        :
-       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-       Filtros2.
-     </button>
+      <div></div>
       }
   <div className='menu'>
   <div class="modal fade modal-sm" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
