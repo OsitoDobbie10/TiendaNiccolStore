@@ -2,9 +2,10 @@ import React from 'react'
 import { useId} from 'react'
 import carrito from '../Files/Add-Cart.png'
 import '../Styles/Cartcustom.css'
+import CustomBotom from './CustomBotom.jsx'
 import CustomAddCart from './CustomAddCart'
 import { motion } from 'framer-motion'
-import CustomBotom from './CustomBotom.jsx'
+
 function Valores({imagen,descp,precio,quantity,addCart,ClearCard}){
     return <li>
            <img src={imagen} alt="elemento" />
@@ -29,12 +30,11 @@ function Valores({imagen,descp,precio,quantity,addCart,ClearCard}){
 const CustomCart = () => {
     const checkboxid = useId();
     const {cart,ClearCard,addCart} = CustomAddCart();
-    const {cleanBotom} = CustomBotom();
-
+    const {cleanBotom,boton} = CustomBotom();
   return (
     <>
     <label htmlFor={checkboxid} className='cart-button'>
-        <img src={carrito} alt="Icono" className='iconoCarrito'/>
+        <img src={carrito} alt="Icono" className='iconoCarrito' onClick = {()=>cleanBotom}/>
     </label>
     <input type="checkbox" id={checkboxid} hidden />
     <motion.aside className='cart'
