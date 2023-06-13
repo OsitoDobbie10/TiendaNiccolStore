@@ -29,7 +29,7 @@ const CustomCart = () => {
     const checkboxid = useId();
     const {cart} = CustomAddCart();
     const {cleanBotom,boton} = CustomBotom();
-    const {sendMessage} = CustomWhatsapp();
+    const {sendMessage,setNombre} = CustomWhatsapp();
    
   return (
     <>
@@ -47,12 +47,16 @@ const CustomCart = () => {
                     return  <li key={carrito.id}>
                     <img src={carrito.imagen} alt="elemento" />
                     <div>
-                 <strong>{carrito.descp}</strong> ${carrito.precio}
+                 <strong>{carrito.descp}</strong> precio: ${carrito.precio}
                    </div>
                  <footer>
                  <small>
-                     Cantidad: {carrito.quantity}
+                    Talla: {carrito.Talla}
                  </small>
+                 <div className="datos">
+                  <span>Escribe tu nombre</span>
+                 <input type="text" className='nombre'onChange={(e)=>{setNombre(e.target.value)}}/>
+                 </div>
                  <div className="enviar">
                  <button type="button" class="btn btn-primary boton" onClick={()=>sendMessage(carrito)}>Enviar pedido</button>
                  </div>

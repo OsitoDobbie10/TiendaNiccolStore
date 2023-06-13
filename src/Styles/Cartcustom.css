@@ -13,6 +13,7 @@
   .cart>ul{
     list-style: none;
     margin-top: 60px;
+    text-align: center;
   }
   .cart img {
     aspect-ratio: 16/9;
@@ -41,7 +42,16 @@
   .boton-quitar{
     margin: auto;
   }
+.datos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.datos>.nombre{
+  width: 100%;
+}
   .cart-button {
     align-items: center;
     background: #09f;
@@ -96,7 +106,7 @@
       }
 
       .enviar{
-        display: block;
+       
         border: 1px solid white;
         position: absolute;
         left: 38%;
