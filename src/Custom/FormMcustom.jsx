@@ -35,6 +35,8 @@ const FormMcustom = (props) => {
         ...prevState,
         precio: e.target.value
       }))}
+
+      console.log(boton)
     return (
     <div className='Mobile'>
       {

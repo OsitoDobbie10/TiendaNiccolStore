@@ -95,7 +95,7 @@
         height: 340px;
         background: black;
         position: relative;
-        z-index: 1000;
+        z-index: 100000;
     }
 
 

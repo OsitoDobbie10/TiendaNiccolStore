@@ -31,6 +31,7 @@ const CustomCart = () => {
     const checkboxid = useId();
     const {cart,ClearCard,addCart} = CustomAddCart();
     const {cleanBotom,boton} = CustomBotom();
+   
   return (
     <>
     <label htmlFor={checkboxid} className='cart-button'>
