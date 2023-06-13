@@ -2,7 +2,7 @@ import React from 'react'
 import { useRef } from 'react';
 import Customfilters from "../Custom/Customfilters";
 import "../Styles/StylesFormMcustom.css"
-
+import CustomBotom from './CustomBotom.jsx'
 const FormMcustom = (props) => {
   const {TallaZapatos,
     ColorZapatos,
@@ -13,6 +13,8 @@ const FormMcustom = (props) => {
     nombreRef3id,
     valormaximo
     } = props;  
+
+    const {boton} = CustomBotom();
     
     const changeTalla = (e)=>{
       setVariables(prevState=>({
@@ -35,9 +37,16 @@ const FormMcustom = (props) => {
       }))}
     return (
     <div className='Mobile'>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Filtros.
-  </button>
+      {
+        boton ? 
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Filtros.
+      </button>
+       :
+       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+       Filtros2.
+     </button>
+      }
   <div className='menu'>
   <div class="modal fade modal-sm" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
