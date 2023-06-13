@@ -4,11 +4,15 @@ import Customfilters from "../Custom/Customfilters";
 import "../Styles/StylesFormMcustom.css"
 
 const FormMcustom = (props) => {
-    const {TallaZapatos,ColorZapatos} = props;
-    const {variables,setVariables} = Customfilters();
-    const nombreRefPrecio = useRef();
-    const nombreRefTalla = useRef();
-    const nombreRefColor = useRef();
+  const {TallaZapatos,
+    ColorZapatos,
+    variables,
+    setVariables,
+    nombreRefid1,
+    nombreRef2id,
+    nombreRef3id,
+    valormaximo
+    } = props;  
     
     const changeTalla = (e)=>{
       setVariables(prevState=>({
@@ -32,8 +36,9 @@ const FormMcustom = (props) => {
     return (
     <div className='Mobile'>
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Filtro.
+    Filtros.
   </button>
+  <div className='menu'>
   <div class="modal fade modal-sm" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -52,17 +57,17 @@ const FormMcustom = (props) => {
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-        <div>
-          <label htmlFor={nombreRefPrecio}>Precio a partir de:</label>
-          <input onChange={changeprecio}
-            type='range'
-            id={nombreRefPrecio}
-            min='0'
-            max='1000'
-            value={variables.precio}
-          />
-          <span>{`${variables.precio}$`}</span>
-         </div>
+      <div className='Precio'> 
+      <label htmlFor={nombreRefid1}>Precio a partir de:</label>
+      <input onChange={changeprecio}
+        type='range'
+        id={nombreRefid1}
+        min='0'
+        max={valormaximo}
+        value={variables.precio}
+      />
+      <span>{`${variables.precio}$`}</span>
+      </div>
         </div>
       </div>
     </div>
@@ -73,17 +78,19 @@ const FormMcustom = (props) => {
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-        <div>
-          <label htmlFor={nombreRefTalla}>Filtro talla</label>
-          <select id={nombreRefTalla} onChange={changeTalla}>
-            {
-              TallaZapatos.map((talla)=>{
-                return <option key={TallaZapatos.indexOf(talla)} value={talla.Talla}>{talla.Talla}</option>
-              })
-            }
-          </select>
-        </div>
+      <div class="accordion-body">     
+      <div className='Talla'>
+      <label htmlFor={nombreRef2id}>Filtro talla</label>
+      <select id={nombreRef2id} onChange={changeTalla}>
+      {
+        TallaZapatos.map((sizeshoes)=>{
+          return <option key={TallaZapatos.indexOf(sizeshoes)} value={sizeshoes}>
+            {sizeshoes}
+          </option>
+        })
+      }
+      </select>
+      </div>
         </div>
       </div>
     </div>
@@ -95,18 +102,20 @@ const FormMcustom = (props) => {
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-        <div>
-          <label htmlFor={nombreRefColor}>Filtro color</label>
-          <select id={nombreRefColor} onChange={changecolor}>
-          <option value='all'>Todas</option>
-            {
-              ColorZapatos.map((color)=>{
-                return <option key={ColorZapatos.indexOf(color)} value={color.color}>{color.color}</option>
-              })
-            }
-          </select>
-        </div>
-       
+        <div className='Color'>
+      <label htmlFor={nombreRef3id}>Filtro color</label>
+      <select id={nombreRef3id} onChange={changecolor}>
+        {
+          ColorZapatos.map((colorshoes)=>{
+            return <option key={ColorZapatos.indexOf(colorshoes)} value={colorshoes}>
+                   {colorshoes}
+                  </option>
+          })
+        }
+      </select>
+       </div>
+
+     
         </div>
       </div>
     </div>
@@ -119,6 +128,8 @@ const FormMcustom = (props) => {
       </div>
     </div>
   </div>
+  </div>
+  
    </div>
     )
 }

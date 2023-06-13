@@ -1,9 +1,10 @@
 import React from 'react'
-import { useId } from 'react'
+import { useId} from 'react'
 import carrito from '../Files/Add-Cart.png'
 import '../Styles/Cartcustom.css'
 import CustomAddCart from './CustomAddCart'
 import { motion } from 'framer-motion'
+import CustomBotom from './CustomBotom.jsx'
 function Valores({imagen,descp,precio,quantity,addCart,ClearCard}){
     return <li>
            <img src={imagen} alt="elemento" />
@@ -28,6 +29,7 @@ function Valores({imagen,descp,precio,quantity,addCart,ClearCard}){
 const CustomCart = () => {
     const checkboxid = useId();
     const {cart,ClearCard,addCart} = CustomAddCart();
+    const {cleanBotom} = CustomBotom();
 
   return (
     <>
