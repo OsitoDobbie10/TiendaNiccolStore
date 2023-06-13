@@ -4,9 +4,10 @@ import carrito from '../Files/Add-Cart.png'
 import '../Styles/Cartcustom.css'
 import CustomBotom from './CustomBotom.jsx'
 import CustomAddCart from './CustomAddCart'
+import CustomWhatsapp from './CustomWhatsapp'
 import { motion } from 'framer-motion'
 
-function Valores({imagen,descp,precio,quantity,addCart,ClearCard}){
+function Valores({imagen,descp,precio,quantity}){
     return <li>
            <img src={imagen} alt="elemento" />
            <div>
@@ -16,21 +17,19 @@ function Valores({imagen,descp,precio,quantity,addCart,ClearCard}){
         <small>
             Cantidad: {quantity}
         </small>
-        <div className="boton-agregar">
-        <button type="button" class="btn btn-success" onClick={addCart}>+</button>
-        </div>
-        <div className="boton-quitar">
-        <button type="button" class="btn btn-warning" onClick={ClearCard}>-</button>
+        <div className="enviar">
+        <button type="button" class="btn btn-primary boton">Enviar pedido</button>
         </div>
        </footer>
-         </li>
+      </li>
          
 }
 
 const CustomCart = () => {
     const checkboxid = useId();
-    const {cart,ClearCard,addCart} = CustomAddCart();
+    const {cart} = CustomAddCart();
     const {cleanBotom,boton} = CustomBotom();
+    const {sendMessage} = CustomWhatsapp();
    
   return (
     <>
@@ -45,22 +44,25 @@ const CustomCart = () => {
         <ul>
             {
                 cart.map((carrito=>{
-                    return <Valores 
-                            key={carrito.id}
-                            addCart={()=>addCart(carrito)}
-                            ClearCard={()=>ClearCard(carrito)}
-                            {...carrito}/>
+                    return  <li key={carrito.id}>
+                    <img src={carrito.imagen} alt="elemento" />
+                    <div>
+                 <strong>{carrito.descp}</strong> ${carrito.precio}
+                   </div>
+                 <footer>
+                 <small>
+                     Cantidad: {carrito.quantity}
+                 </small>
+                 <div className="enviar">
+                 <button type="button" class="btn btn-primary boton" onClick={sendMessage}>Enviar pedido</button>
+                 </div>
+                </footer>
+               </li>
                 }))
-
                 
             }
         </ul>
-      {
-        cart.length > 0 ? <div className="enviar">
-                          <button type="button" class="btn btn-primary boton">Enviar pedido</button>
-                          </div>:
-        <div></div>
-      } 
+     
     </motion.aside>
     </>
   )
