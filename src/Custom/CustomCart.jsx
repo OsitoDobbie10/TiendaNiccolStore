@@ -54,7 +54,7 @@ const CustomCart = () => {
                      Cantidad: {carrito.quantity}
                  </small>
                  <div className="enviar">
-                 <button type="button" class="btn btn-primary boton" onClick={sendMessage}>Enviar pedido</button>
+                 <button type="button" class="btn btn-primary boton" onClick={()=>sendMessage(carrito)}>Enviar pedido</button>
                  </div>
                 </footer>
                </li>
