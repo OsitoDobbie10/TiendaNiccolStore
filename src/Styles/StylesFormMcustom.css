@@ -1,15 +1,4 @@
-@media screen and (max-width:768px) {
-    .Mobile{
-        position: absolute;
-        top:5px;
-        left: 40%;
-        z-index: 10000;
-    }
-
-    .accordion-body>div{
-        display: flex;
-        flex-direction: column;
-    
-    }
-
+.mobile>.cuerpo{
+    width: 420px;
+    border: 1px solid black;
 }

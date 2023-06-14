@@ -101,6 +101,7 @@
         width: 280px;
         border: 1px solid black;
         height: 450px;
+        margin: auto;
     }
 
     .arrayCamisas>li>img{
