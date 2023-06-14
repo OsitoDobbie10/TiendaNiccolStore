@@ -27,7 +27,7 @@ function Valores({imagen,descp,precio,quantity}){
 
 const CustomCart = () => {
     const checkboxid = useId();
-    const {cart} = CustomAddCart();
+    const {cart,ClearCard} = CustomAddCart();
     const {boton,setBoton} = CustomBotom();
     const {sendMessage,setNombre} = CustomWhatsapp();
 
@@ -43,11 +43,18 @@ const CustomCart = () => {
      initial={{ opacity: 0, scale: 0.5 }}
      animate={{ opacity: 1, scale: 1 }}
      transition={{ duration: 0.5 }}>
+      <h3 style={{textAlign:'center'}}>Carrito de compra</h3>
+      <button className='btn btn-warning' onClick={ClearCard} style={{
+        display:'block', margin:'auto'
+      }}>Limpiar carrito</button>
         <ul>
             {
                 cart.map((carrito=>{
                     return  <li key={carrito.id}>
-                    <img src={carrito.imagen} alt="elemento" />
+                    <img src={carrito.imagen} alt="elemento" style={{width:'100px',
+                                                                     height:'100px',
+                                                                     display:'block',
+                                                                     margin:'auto'}}/>
                     <div>
                  <strong>{carrito.descp}</strong> precio: ${carrito.precio}
                    </div>

@@ -12,13 +12,16 @@
   }
   .cart>ul{
     list-style: none;
-    margin-top: 60px;
+    margin-top: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .cart img {
-    aspect-ratio: 16/9;
-    width: 100%;
-    margin-top: 30px;
+  .cart>img {
+    
+    width: 200px;
+    height: 200px;
   }
   
   .cart li {
@@ -97,17 +100,17 @@
 
       .cart>ul{
         list-style: none;
-        margin-top: 160px;
         z-index: 10000;
       }
 
-      .cart li{
+      .cart>li{
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
 
+    
 
 
     
