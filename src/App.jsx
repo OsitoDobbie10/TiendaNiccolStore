@@ -1,4 +1,3 @@
-import './App.css'
 import { createBrowserRouter,RouterProvider,Navigate } from 'react-router-dom'
 import Home from './Componets/Home';
 import Camisas from './Componets/Camisas';
